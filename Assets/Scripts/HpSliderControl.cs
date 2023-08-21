@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HpSliderControl : MonoBehaviour
 {
-    public Image hpUI;
+    public Slider hpUI;
     public PlayerController pc;
     public float maxHeath;
     public float currentHealth;
@@ -26,6 +26,6 @@ public class HpSliderControl : MonoBehaviour
 
     public void UpdateHpUI()
     {
-        hpUI.fillAmount = currentHealth / maxHeath;
+        hpUI.value = (currentHealth / maxHeath)*100;
     }
 }
