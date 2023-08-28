@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,11 +11,25 @@ public class PlayerController : MonoBehaviour
     public float health = 10f;
     public float damageTakenLow;
     public float damageTakenHigh;
-    public float invperiod = 5f;
+    public float invperiod = 1.5f;
+    public float flashDuration = 0.2f;         // Duration of the flash effect
+    public Color flashColor = Color.red;       // Color to flash
+    private Renderer objectRenderer;           // Reference to the object's renderer
+    private Color originalColor;               // Original color of the object
+    private bool isFlashing = false;           // Flag to track if object is currently flashing
+
+    private bool isBlinking = false;           // Flag to track if object is currently blinking
+
+    public Color blinkColor;
+    private float blinkDuration;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        objectRenderer = GetComponent<Renderer>();
+        originalColor = objectRenderer.material.color;
+
+        blinkDuration = invperiod / 3;
     }
 
     void Update()
@@ -46,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (invperiod > 0)
         {
+            StartBlinking();
             invperiod -= Time.deltaTime;
         }
     }
@@ -63,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (invperiod <= 0)
         {
             health -= damageTaken;
+            StartFlashEffect();
             invperiod = 1.2f;
         }
         
@@ -83,7 +100,59 @@ public class PlayerController : MonoBehaviour
         if (invperiod <= 0)
         {
             health -= Random.Range(damageTakenLow, damageTakenHigh);
+            StartFlashEffect();
             invperiod = 1.2f;
+        }
+    }
+
+    private void StartFlashEffect()
+    {
+        if (!isFlashing && !isBlinking)
+        {
+            StartCoroutine(FlashEffect());
+        }
+    }
+
+    private IEnumerator FlashEffect()
+    {
+        isFlashing = true;
+        Color originalColor = objectRenderer.material.color;
+
+        objectRenderer.material.color = flashColor;
+        yield return new WaitForSeconds(flashDuration);
+        objectRenderer.material.color = originalColor;
+
+        isFlashing = false;
+    }
+
+    private IEnumerator BlinkingColorEffect()
+    {
+        isBlinking = true;
+        Color originalColor = objectRenderer.material.color;
+
+        // Blinking loop
+        while (isBlinking && invperiod > 0)
+        {
+            objectRenderer.material.color = blinkColor;
+            yield return new WaitForSeconds(blinkDuration);
+
+            objectRenderer.material.color = originalColor;
+            yield return new WaitForSeconds(blinkDuration);
+        }
+
+        if (invperiod <= 0)
+        {
+            isBlinking = false;
+        }
+
+        objectRenderer.material.color = originalColor;
+    }
+
+    private void StartBlinking()
+    {
+        if (!isBlinking && !isFlashing)
+        {
+            StartCoroutine(BlinkingColorEffect());
         }
     }
 }
