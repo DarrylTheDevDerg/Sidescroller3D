@@ -13,6 +13,7 @@ public class DamageableObject : MonoBehaviour
     private Renderer objectRenderer;           // Reference to the object's renderer
     private Color originalColor;               // Original color of the object
     private bool isFlashing = false;           // Flag to track if object is currently flashing
+    public float damageAmount;
 
 
     private void Start()
@@ -37,13 +38,13 @@ public class DamageableObject : MonoBehaviour
         { 
             if (other.CompareTag("PlayerAttack")) // Replace "Hurtbox" with the appropriate tag
             {
-                TakeDamage(2.5f); // Decrease HP by a specified amount
+                TakeDamage(); // Decrease HP by a specified amount
                 StartFlashEffect(); // Start the flash effect
             }
         }
     }
 
-    private void TakeDamage(float damageAmount)
+    private void TakeDamage()
     {
         currentHP -= damageAmount; // Decrease HP by the specified amount
     }

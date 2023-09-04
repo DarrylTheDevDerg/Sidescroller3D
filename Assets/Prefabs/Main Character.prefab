@@ -153,8 +153,12 @@ MonoBehaviour:
   attackPrefab1: {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
   attackPrefab2: {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
   attackPrefab3: {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
+  superAttack: {fileID: 4999695313860369262, guid: ea6b9946aff6aab4e8302d851a4bc637, type: 3}
   attackOffset: {x: 1, y: 0, z: 0}
   attackCooldown: 0.27
   xAttackCooldown: 0.48
   cAttackCooldown: 0.86
+  charge: 0
+  chargecooldown: 0
+  hpControl: {fileID: 7534592259981188475, guid: 7020d64fe2aa04943b0a3a0b949a211b, type: 3}
   playerTransform: {fileID: 4970055229562490521}
