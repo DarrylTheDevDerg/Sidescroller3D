@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
             
             if (Input.GetKey(KeyCode.V))
             {   
-                charge += 0.09f;
+                charge += Time.deltaTime + 0.19f;
             }
         }
 
@@ -68,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (chargecooldown >= 11.5f)
         {
-            charge -= 1.3f;
+            charge -= Time.deltaTime + 1.3f;
             chargecooldown = 0f;
         }
     }
