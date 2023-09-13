@@ -7,10 +7,15 @@ public class ChaseTarget : MonoBehaviour
     public string targetTag = "Player";  // The tag of the target to chase
     public float speed = 5f;             // The chase speed
 
+    public float minSpeed;
+    public float maxSpeed;
+
     private Transform target;            // Reference to the target's transform
 
     private void Start()
     {
+        speed = Random.Range(minSpeed, maxSpeed);
+
         // Find the target GameObject using its tag
         GameObject targetObject = GameObject.FindGameObjectWithTag(targetTag);
 
