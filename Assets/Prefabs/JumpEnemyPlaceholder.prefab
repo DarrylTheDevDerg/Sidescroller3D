@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8955026094564635571}
   - component: {fileID: 8955026094564635570}
   - component: {fileID: 8955026094564635573}
-  - component: {fileID: 8955026094564635572}
   - component: {fileID: 8955026094564635575}
   - component: {fileID: 8955026094564635574}
+  - component: {fileID: -6613995168263043957}
+  - component: {fileID: 6375606935540301392}
   m_Layer: 0
   m_Name: JumpEnemyPlaceholder
   m_TagString: Enemy
@@ -133,60 +134,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8955026094564635572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8955026094564635561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49513b1f4b09f2643a824f2af1f758db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  voidsToExecute:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetDamageLow
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetDamageHigh
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: TakeRandomDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  cooldown: 1
-  cooldownStart: 0
 --- !u!114 &8955026094564635575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,13 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86d9743350f4884dbfe5a3ae9eac185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 32
+  maxHP: 45
   flashDuration: 0.08
   flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
   damagingPrefabs:
   - {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
+  - {fileID: 4999695313860369262, guid: ea6b9946aff6aab4e8302d851a4bc637, type: 3}
   currentHP: 0
-  damageAmount: 0
+  damageAmount: 0.7
 --- !u!114 &8955026094564635574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +170,33 @@ MonoBehaviour:
   chaseSpeed: 4.14
   jumpForce: 10
   jumpInterval: 3.43
+--- !u!114 &-6613995168263043957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8955026094564635561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe085201be406f141a607dfe123893f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: {fileID: 1087515597635797390, guid: a0c359ef6a12200449c037be5fee7101, type: 3}
+--- !u!114 &6375606935540301392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8955026094564635561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3630571a21f4a49aaa914c088e42fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  mainScript: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
+  minDamageAmount: 3
+  maxDamageAmount: 5
+  damageAmount: 0

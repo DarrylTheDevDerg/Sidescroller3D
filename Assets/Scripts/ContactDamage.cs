@@ -5,7 +5,6 @@ using UnityEngine;
 public class ContactDamage : MonoBehaviour
 {
     public string targetTag = "Player";
-    public PlayerController mainScript;
 
     public float minDamageAmount;
     public float maxDamageAmount;
@@ -21,6 +20,8 @@ public class ContactDamage : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
+            PlayerController mainScript = other.gameObject.GetComponent<PlayerController>();
+
             mainScript.TakeFlatDamage(damageAmount);
             damageAmount = Random.Range(minDamageAmount, maxDamageAmount);
         }

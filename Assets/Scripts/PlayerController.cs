@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
@@ -63,6 +64,11 @@ public class PlayerController : MonoBehaviour
         {
             StartBlinking();
             invperiod -= Time.deltaTime;
+        }
+
+        if (health == 0 || health <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 

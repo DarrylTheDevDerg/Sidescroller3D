@@ -6,14 +6,19 @@ using UnityEngine.Events;
 public class KamikazeObject : MonoBehaviour
 {
     public MethodEvent[] eventsToExecute;
+    public string targetTag;
 
     private void OnTriggerEnter(Collider other)
     {
-        for (int i = 0; i < eventsToExecute.Length; i++)
-        {
-            eventsToExecute[i].Invoke();
-        }
+        if (other.CompareTag(targetTag))
+        { 
+            for (int i = 0; i < eventsToExecute.Length; i++)
+            {
+                eventsToExecute[i].Invoke();
+            }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public float charge;
     public float chargecooldown;
     private bool canAttack = true;  // Flag to track attack cooldown
-    public DamageableObject hpControl;
+    public DamageableObject[] hpControl;
 
     public Transform playerTransform; // Reference to the player's transform
 
@@ -27,7 +27,11 @@ public class PlayerAttack : MonoBehaviour
             // Attack with Z key
             if (Input.GetKey(KeyCode.Z))
             {
-                hpControl.damageAmount = 1.3f;
+                for (int i = 0; i < hpControl.Length; i++)
+                {
+                    hpControl[i].damageAmount = 0.7f;
+                }
+
                 PerformAttack(attackPrefab1);
                 StartCoroutine(StartCooldown(0f));
             }
@@ -35,7 +39,11 @@ public class PlayerAttack : MonoBehaviour
             // Attack with X key
             if (Input.GetKey(KeyCode.X))
             {
-                hpControl.damageAmount = 2.5f;
+                for (int i = 0; i < hpControl.Length; i++)
+                {
+                    hpControl[i].damageAmount = 1.3f;
+                }
+
                 PerformAttack(attackPrefab2);
                 StartCoroutine(StartCooldown(xAttackCooldown));
             }
@@ -43,7 +51,11 @@ public class PlayerAttack : MonoBehaviour
             // Attack with C key
             if (Input.GetKey(KeyCode.C))
             {
-                hpControl.damageAmount = 3.4f;
+                for (int i = 0; i < hpControl.Length; i++)
+                {
+                    hpControl[i].damageAmount = 2.6f;
+                }
+
                 PerformAttack(attackPrefab3);
                 StartCoroutine(StartCooldown(cAttackCooldown));
             }
@@ -56,7 +68,11 @@ public class PlayerAttack : MonoBehaviour
 
         if (canAttack && charge >= 100)
         {
-            hpControl.damageAmount = 20f;
+            for (int i = 0; i < hpControl.Length; i++)
+            {
+                hpControl[i].damageAmount = 20f;
+            }
+
             PerformSUPERAttack(superAttack);
             charge = -5f;
         }

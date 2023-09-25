@@ -150,8 +150,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  cooldown: 1
-  cooldownStart: 0
 --- !u!1 &5295382123595054761
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,8 +300,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  cooldown: 1
-  cooldownStart: 0
 --- !u!1 &5968101331830561156
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +317,7 @@ GameObject:
   - component: {fileID: 5968101331830561157}
   - component: {fileID: 338474213980939645}
   - component: {fileID: 4942342029849543070}
-  - component: {fileID: -6512352673056171412}
+  - component: {fileID: -6585666154882720413}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Enemy
@@ -474,8 +470,9 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
   damagingPrefabs:
   - {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
+  - {fileID: 4999695313860369262, guid: ea6b9946aff6aab4e8302d851a4bc637, type: 3}
   currentHP: 0
-  damageAmount: 1.3
+  damageAmount: 0.7
 --- !u!114 &4942342029849543070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +489,7 @@ MonoBehaviour:
   speed: 1
   minSpeed: 2
   maxSpeed: 3
---- !u!114 &-6512352673056171412
+--- !u!114 &-6585666154882720413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,48 +498,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5968101331830561156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49513b1f4b09f2643a824f2af1f758db, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a3630571a21f4a49aaa914c088e42fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  voidsToExecute:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetDamageLow
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 5.6
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetDamageHigh
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10.2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: TakeRandomDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  cooldown: 1
-  cooldownStart: 0
+  mainScript: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
+  minDamageAmount: 5
+  maxDamageAmount: 10
+  damageAmount: 0

@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public int maxRandomAmount = 5;    // Maximum number of enemies to spawn
     public GameObject enemySpawner;    // The spawner object
     public GameObject[] enemyPrefabs;  // Array of enemy prefabs
+    public GameObject player;
 
     private float currentTime = 0f;   // Current time counter
     private float randomTime = 0f;    // Time for the next spawn
@@ -19,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     public int rounds = 5;             // Number of spawn rounds
 
     private Vector3 spawnerSize;       // Size of the enemy spawner
+    [SerializeField] EnemyDefeatCount counter;
+    [SerializeField] PlayerController playerInGame;
 
     private void Start()
     {
@@ -55,6 +58,7 @@ public class EnemySpawner : MonoBehaviour
         if (rounds <= 0)
         {
             Destroy(enemySpawner);
+            Destroy(gameObject);
         }
     }
 
@@ -67,7 +71,12 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < randomAmount; i++)
         {
             int randomPrefabIndex = Random.Range(0, enemyPrefabs.Length);
-            Instantiate(enemyPrefabs[randomPrefabIndex], spawnPosition, Quaternion.identity);
+            GameObject go = Instantiate(enemyPrefabs[randomPrefabIndex], spawnPosition, Quaternion.identity);
+
+            PlayerController pC = player.GetComponent<PlayerController>();
+
+            AddNumberUponDestruction anud = go.GetComponent<AddNumberUponDestruction>();
+            anud.counter = counter;
         }
 
         // Reset time and get new random values for the next round

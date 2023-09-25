@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class TeleportOnContact : MonoBehaviour
 {
-    public Vector3 teleportPosition = new Vector3(0f, 5f, 0f); // The position to teleport to
+    public float Xpos = 0f;
+    public float Ypos = 0f;
+    public float Zpos = 0f;
+
+    public Vector3 teleportPosition; // The position to teleport to
+
+    public void EditXTeleportPosition(float newX)
+    {
+        teleportPosition.Set(newX, Ypos, Zpos);
+    }
+
+    public void EditYTeleportPosition(float newY)
+    {
+        teleportPosition.Set(Xpos, newY, Zpos);
+    }
+
+    public void EditZTeleportPosition(float newZ)
+    {
+        teleportPosition.Set(Xpos, Ypos, newZ);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,4 +34,7 @@ public class TeleportOnContact : MonoBehaviour
             other.transform.position = teleportPosition;
         }
     }
+
+    
+
 }

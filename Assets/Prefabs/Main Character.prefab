@@ -116,8 +116,8 @@ MonoBehaviour:
   jumpForce: 12
   childObject: {fileID: 4970055229562490519}
   health: 100
-  damageTakenLow: 5.6
-  damageTakenHigh: 10.2
+  damageTakenLow: 2
+  damageTakenHigh: 5
   invperiod: 1.5
   flashDuration: 0.2
   flashColor: {r: 1, g: 0.6933962, b: 0.6933962, a: 1}
@@ -155,10 +155,13 @@ MonoBehaviour:
   attackPrefab3: {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
   superAttack: {fileID: 4999695313860369262, guid: ea6b9946aff6aab4e8302d851a4bc637, type: 3}
   attackOffset: {x: 1, y: 0, z: 0}
-  attackCooldown: 0.27
-  xAttackCooldown: 0.48
-  cAttackCooldown: 0.86
+  attackCooldown: 0.12
+  xAttackCooldown: 0.21
+  cAttackCooldown: 0.39
   charge: 0
   chargecooldown: 0
-  hpControl: {fileID: 7534592259981188475, guid: 7020d64fe2aa04943b0a3a0b949a211b, type: 3}
+  hpControl:
+  - {fileID: 7534592259981188475, guid: 7020d64fe2aa04943b0a3a0b949a211b, type: 3}
+  - {fileID: 8955026094564635575, guid: 849d3c3de2b400841bd0357a7d30f83e, type: 3}
+  - {fileID: 338474213980939645, guid: f04ba638ebb44d54db64a62e77a61431, type: 3}
   playerTransform: {fileID: 4970055229562490521}
