@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7534592259981188475}
   - component: {fileID: 7534592259981188474}
   - component: {fileID: 3380389550772779920}
+  - component: {fileID: -6628754450817244680}
   m_Layer: 0
   m_Name: EnemyPlaceholder
   m_TagString: Enemy
@@ -148,6 +149,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
   damagingPrefabs:
   - {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
+  currentHP: 0
   damageAmount: 1.3
 --- !u!114 &7534592259981188474
 MonoBehaviour:
@@ -182,3 +184,57 @@ MonoBehaviour:
   minDamageAmount: 2
   maxDamageAmount: 5
   damageAmount: 0
+--- !u!114 &-6628754450817244680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534592259981188419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49513b1f4b09f2643a824f2af1f758db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  voidsToExecute:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetDamageLow
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetDamageHigh
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: TakeRandomDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  cooldown: 1
+  cooldownStart: 0

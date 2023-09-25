@@ -45,8 +45,16 @@ public class EnemySpawner : MonoBehaviour
 
                     // Set the flag to indicate that the round has been triggered
                     triggeredRound = true;
+
+                 
                 }
             }
+
+        }
+
+        if (rounds <= 0)
+        {
+            Destroy(enemySpawner);
         }
     }
 

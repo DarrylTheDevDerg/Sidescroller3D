@@ -149,7 +149,7 @@ MonoBehaviour:
   voidsToExecute:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SetDamageLow
         m_Mode: 4
@@ -157,11 +157,11 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 3.5
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SetDamageHigh
         m_Mode: 4
@@ -169,11 +169,11 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 6.25
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4970055229562490517, guid: 21283e6f876b0544ca30589db66070f0, type: 3}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: TakeRandomDamage
         m_Mode: 1
@@ -185,8 +185,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  cooldown: 0
-  cooldownStart: 1.5
+  cooldown: 1
+  cooldownStart: 0
 --- !u!114 &8955026094564635575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
   damagingPrefabs:
   - {fileID: 6632651460851858068, guid: 1f68721899eed2a4c87259c8ad18ab39, type: 3}
+  currentHP: 0
   damageAmount: 0
 --- !u!114 &8955026094564635574
 MonoBehaviour:

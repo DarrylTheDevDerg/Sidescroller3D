@@ -9,7 +9,7 @@ public class DamageableObject : MonoBehaviour
     public Color flashColor = Color.red;       // Color to flash
     public GameObject[] damagingPrefabs;       // Array of damaging prefabs with trigger colliders
 
-    private float currentHP;                   // Current HP
+    public float currentHP;                   // Current HP
     private Renderer objectRenderer;           // Reference to the object's renderer
     private Color originalColor;               // Original color of the object
     private bool isFlashing = false;           // Flag to track if object is currently flashing
